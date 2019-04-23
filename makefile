@@ -1,6 +1,6 @@
 infrastructure:
 	# Get the modules, create the infrastructure.
-	terraform init && terraform get && terraform apply -auto-approve
+	terraform init && terraform get && terraform apply
 
 # Installs OpenShift on the cluster.
 openshift:
