@@ -26,8 +26,9 @@ variable "cluster_id" {
   description = "ID of the cluster, e.g: 'openshift-cluster-us-east-1'. Useful when running multiple clusters in the same AWS account."
 }
 
-variable "owner_name" {
-  description = "A descriptive name of the owner, used to tag infrastructure."
+variable "custom_tags" {
+  type = "map"
+  description = "A set of tags to apply to all infrastructure, such as Owner, Department, etc."
 }
 
 data "aws_availability_zones" "azs" {}

@@ -27,7 +27,7 @@ resource "aws_instance" "master" {
     "${aws_security_group.openshift-public-egress.id}",
   ]
 
-  //  We need at least 30GB for OpenShift, let's be greedy...
+  //  We need at least 30GB for OpenShift, let us be greedy...
   root_block_device {
     volume_size = 50
     volume_type = "gp2"
@@ -72,7 +72,7 @@ resource "aws_eip" "node2_eip" {
 }
 
 //  Create the two nodes. This would be better as a Launch Configuration and
-//  autoscaling group, but I'm keeping it simple...
+//  autoscaling group, but keeping it simple...
 resource "aws_instance" "node1" {
   ami                  = "${data.aws_ami.rhel7_5.id}"
   instance_type        = "${var.amisize}"
@@ -86,7 +86,7 @@ resource "aws_instance" "node1" {
     "${aws_security_group.openshift-public-egress.id}",
   ]
 
-  //  We need at least 30GB for OpenShift, let's be greedy...
+  //  We need at least 30GB for OpenShift, let us be greedy...
   root_block_device {
     volume_size = 50
     volume_type = "gp2"
@@ -124,7 +124,7 @@ resource "aws_instance" "node2" {
     "${aws_security_group.openshift-public-egress.id}",
   ]
 
-  //  We need at least 30GB for OpenShift, let's be greedy...
+  //  We need at least 30GB for OpenShift, let us be greedy...
   root_block_device {
     volume_size = 50
     volume_type = "gp2"

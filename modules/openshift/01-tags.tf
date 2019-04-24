@@ -13,16 +13,16 @@
 //    - OpenShift: Cluster Labelling Requirements: https://docs.openshift.org/latest/install_config/configuring_aws.html#aws-cluster-labeling
 
 //  Define our common tags.
+//   - ${var.custom_tags}: Set as an input variable
 //   - KubernetesCluster: Set to <cluster_id>, required for OpenShift < 3.7
 //   - kubernetes.io/cluster/<name>: Set to <cluster_id>, required for OpenShift >= 3.7
 //  The syntax below is ugly, but needed as we are using dynamic key names.
 locals {
-  common_tags = "${map(
-    "Application", "openshift",
-    "Environment", "poc",
-    "Owner", "${var.owner_name}",
-    "Project", "cag",
-    "KubernetesCluster", "${var.cluster_name}",
-    "kubernetes.io/cluster/${var.cluster_name}", "${var.cluster_id}"
+  common_tags = "${merge(
+    var.custom_tags,
+    map(
+      "KubernetesCluster", "${var.cluster_name}",
+      "kubernetes.io/cluster/${var.cluster_name}", "${var.cluster_id}"
+    )
   )}"
 }

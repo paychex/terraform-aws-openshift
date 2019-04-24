@@ -7,6 +7,7 @@ variable "key_name" {
   description = "The name of the key to use for ssh access, e.g: consul-cluster"
 }
 
-variable "owner_name" {
-  description = "A descriptive name of the owner, used to tag infrastructure."
+variable "custom_tags" {
+  type = "map"
+  description = "A set of tags to apply to all infrastructure, such as Owner, Department, etc."
 }
