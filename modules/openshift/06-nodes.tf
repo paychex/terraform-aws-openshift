@@ -50,6 +50,12 @@ resource "aws_instance" "master" {
       "Name", "OpenShift Master"
     )
   )}"
+  volume_tags = "${merge(
+    local.common_tags,
+    map(
+      "Name", "OpenShift Master Volume"
+    )
+  )}"
 }
 
 //  Create the node userdata script.
@@ -109,6 +115,12 @@ resource "aws_instance" "node1" {
       "Name", "OpenShift Node 1"
     )
   )}"
+  volume_tags = "${merge(
+    local.common_tags,
+    map(
+      "Name", "OpenShift Node 1 Volume"
+    )
+  )}"
 }
 
 resource "aws_instance" "node2" {
@@ -145,6 +157,12 @@ resource "aws_instance" "node2" {
     local.common_tags,
     map(
       "Name", "OpenShift Node 2"
+    )
+  )}"
+  volume_tags = "${merge(
+    local.common_tags,
+    map(
+      "Name", "OpenShift Node 2 Volume"
     )
   )}"
 }
