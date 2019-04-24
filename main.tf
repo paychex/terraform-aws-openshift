@@ -11,6 +11,7 @@ module "openshift" {
   vpc_cidr        = "10.0.0.0/16"
   subnet_cidr     = "10.0.1.0/24"
   key_name        = "${var.key_name}"
+  public_key_path = "${var.public_key_path}"
   cluster_name    = "openshift-cluster"
   cluster_id      = "openshift-cluster-${var.region}"
   custom_tags     = "${var.custom_tags}"

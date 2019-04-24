@@ -14,6 +14,10 @@ variable "subnet_cidr" {
   description = "The CIDR block for the public subnet, e.g: 10.0.1.0/24"
 }
 
+variable "public_key_path" {
+  description = "The local public key path, e.g. ~/.ssh/id_rsa.pub"
+}
+
 variable "key_name" {
   description = "The name of the key to use for ssh access, e.g: consul-cluster"
 }

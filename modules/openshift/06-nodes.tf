@@ -1,3 +1,9 @@
+//  Create an SSH keypair
+resource "aws_key_pair" "keypair" {
+  key_name   = "${var.key_name}"
+  public_key = "${file(var.public_key_path)}"
+}
+
 //  Create the master userdata script.
 data "template_file" "setup-master" {
   template = "${file("${path.module}/files/setup-master.sh")}"
