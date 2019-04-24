@@ -13,6 +13,7 @@ module "openshift" {
   key_name        = "${var.key_name}"
   cluster_name    = "openshift-cluster"
   cluster_id      = "openshift-cluster-${var.region}"
+  owner_name      = "${var.owner_name}"
 }
 
 //  Output some useful variables for quick SSH access etc.
